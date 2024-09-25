@@ -91,8 +91,14 @@ def parse_page_source(page_source):
     # 提取精华帖子的内容
     posts_content = []
     for container in soup.find_all('div', class_='talk-content-container'):
-        post = container.find('div', class_='content')
-        posts_content.append(post.get_text(strip=True))
+        post_text = []
+        for element in container.descendants:
+            if element.name == 'a':  # 如果是链接标签
+                post_text.append(element.get('href'))  # 添加链接地址
+                # post_text.append(element.text)  # 添加链接文本
+            elif element.string:  # 如果是文本节点
+                post_text.append(element.string.strip())  # 添加文本内容
+        posts_content.append(' '.join(post_text))
         posts_content.append("\n \n ====================分割线=======================  \n \n")
 
     return posts_content
@@ -115,7 +121,9 @@ def after_login(driver, url):
 
 # 主函数
 def main():
-    url = 'https://wx.zsxq.com/group/51128841845884'
+    # https://wx.zsxq.com/group/51128841845884  刺猬
+    # https://wx.zsxq.com/group/15552545485212 AI破局
+    url = 'https://wx.zsxq.com/group/15552545485212'
 
     # 设置 WebDriver
     driver = setup_driver()
