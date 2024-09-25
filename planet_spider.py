@@ -104,6 +104,7 @@ def save_to_file(posts_content, filename='highlight_posts.txt'):
         for content in posts_content:
             file.write(content + '\n')
 
+
 def after_login(driver, url):
     # 打开目标网页
     driver.get(url)
@@ -114,7 +115,7 @@ def after_login(driver, url):
 
 # 主函数
 def main():
-    url = 'https://wx.zsxq.com/group/15552545485212'
+    url = 'https://wx.zsxq.com/group/51128841845884'
 
     # 设置 WebDriver
     driver = setup_driver()
