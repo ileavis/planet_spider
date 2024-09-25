@@ -15,7 +15,7 @@
     ```bash
     pip install selenium beautifulsoup4
     ```
-2. 下载对应浏览器的WebDriver，例如EdgeDriver，并将其路径替换到脚本中的相应位置。
+2. 下载对应浏览器的WebDriver，我这里用的是Edge,因此下载[EdgeDriver](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/?form=MA13LH)，并将其路径替换到脚本中的相应位置。
 3. 修改脚本中的目标URL为你想要抓取的网页地址。
 4. 运行脚本：
     ```bash
